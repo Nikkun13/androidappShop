@@ -17,15 +17,17 @@ const CategoriesScreen = ({ navigation }) => {
 
 
     return (
-        <View>
+        <>
+        <View style={styles.centrar}>
             <Image style={styles.imagen} source={require('../../img/logo.png')} />
+        </View>
         <FlatList
             data={CATEGORIES}
             keyExtractor={(item) => item.id}
             renderItem={renderGridItem}
             numColumns={2}
         />
-        </View>
+        </>
     )
 }
 

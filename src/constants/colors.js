@@ -16,7 +16,7 @@ export const Colors = {
   fondoBolsa: "#fcbf6b",
   fondoResultado: "#BC8F8F",
   botonVaciar: "#2E8B57",
-  primary: '#f5428d',
+  primary: '#5c0d07',
   accent: '#f54242',
   black: '#000',
 };

@@ -15,7 +15,7 @@ const ResultadosScreen = ({ route, navigation }) => {
           <Button
             styleButtonType={styles.buttonRegresar}
             onPress={() => {
-              navigation.navigate("Bag");
+              navigation.navigate("Simulator");
             }}
             title="Ir a la Bolsa de Dados"
             disabled={false}
@@ -49,7 +49,7 @@ const ResultadosScreen = ({ route, navigation }) => {
         <Button
           styleButtonType={styles.buttonRegresar}
           onPress={() => {
-            navigation.navigate("Bag");
+            navigation.navigate("Simulator");
           }}
           title="Ir a la Bolsa de Dados"
           disabled={false}

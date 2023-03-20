@@ -65,12 +65,8 @@ export const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   imagen: {
-    height: Dimensions.get("window").height / 3,
-    minHeight: 200,
-    width: Dimensions.get("window").height / 3,
-    maxWidth: "80%",
-    minWidth: 200,
-    borderRadius: 150,
+    width: Dimensions.get("window").width*0.8,
+    marginVertical: 20,
   },
   inputContainer: {
     marginTop: 10,

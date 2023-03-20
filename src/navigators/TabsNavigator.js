@@ -26,8 +26,8 @@ const TabsNavigator = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.tabBarIcon}>
-              <Entypo name="shop" size={24} color={focused ? '#7F5DF0' : '#748C94'} />
-              <Text style={{ color: focused ? '#7F5DF0' : '#748C94' }}>Shop</Text>
+              <Entypo name="shop" size={24} color={focused ? '#5c0d07' : '#748C94'} />
+              <Text style={{ color: focused ? '#5c0d07' : '#748C94' }}>Shop</Text>
             </View>
           )
         }}
@@ -37,8 +37,8 @@ const TabsNavigator = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.tabBarIcon}>
-              <Ionicons name="md-cart" size={24} color={focused ? '#7F5DF0' : '#748C94'} />
-              <Text style={{ color: focused ? '#7F5DF0' : '#748C94' }}>Cart</Text>
+              <Ionicons name="md-cart" size={24} color={focused ? '#5c0d07' : '#748C94'} />
+              <Text style={{ color: focused ? '#5c0d07' : '#748C94' }}>Cart</Text>
             </View>
           )
         }}
@@ -47,8 +47,8 @@ const TabsNavigator = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.tabBarIcon}>
-              <FontAwesome5 name="dice" size={24} color={focused ? '#7F5DF0' : '#748C94'} />
-              <Text style={{ color: focused ? '#7F5DF0' : '#748C94' }}>Simulator</Text>
+              <FontAwesome5 name="dice" size={24} color={focused ? '#5c0d07' : '#748C94'} />
+              <Text style={{ color: focused ? '#5c0d07' : '#748C94' }}>Simulator</Text>
             </View>
           )
         }}
