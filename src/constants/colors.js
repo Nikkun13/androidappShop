@@ -1,5 +1,22 @@
-export const COLORS = {
-    primary: '#f5428d',
-    accent: '#f54242',
-    black: '#000',
-}
+export const Colors = {
+  fondoMenu: "#ccc",
+  dadoCuatro: "#FF6347",
+  dadoDiez: "#87CEEB",
+  dadoOcho: "#F0E68C",
+  dadoDoce: "#90EE90",
+  dadoSeis: "#FFFAF0",
+  dadoVeinte: "#DDA0DD",
+  botonAgregar: "#87CEFA",
+  titulo: "#FF4500",
+  botonCancelar: "#EEE8AA",
+  botonLanzar: "#FF8000",
+  botonBolsa: "#7B68EE",
+  botonDesactivado: "#696969",
+  botonEliminar: "#FF0000",
+  fondoBolsa: "#fcbf6b",
+  fondoResultado: "#BC8F8F",
+  botonVaciar: "#2E8B57",
+  primary: '#f5428d',
+  accent: '#f54242',
+  black: '#000',
+};

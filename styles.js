@@ -1,6 +1,6 @@
 import { Dimensions, StyleSheet } from "react-native";
 
-import Colors from "./src/constants/colors2";
+import { Colors }  from "./src/constants/colors";
 
 const tamanioUno = (40 * Dimensions.get("window").width) / 392;
 const tamanioDos = (24 * Dimensions.get("window").width) / 392;
@@ -44,7 +44,7 @@ export const styles = StyleSheet.create({
     fontFamily: "open-sans-bold",
   },
   textoDos: {
-    color: Colors.texto,
+    color: Colors.black,
     paddingBottom: 10,
     paddingTop: 10,
     fontSize: tamanioDos,
@@ -52,7 +52,7 @@ export const styles = StyleSheet.create({
     fontFamily: "open-sans",
   },
   textoTres: {
-    color: Colors.texto,
+    color: Colors.black,
     fontSize: tamanioTres,
     textAlign: "center",
     padding: 10,
@@ -96,7 +96,7 @@ export const styles = StyleSheet.create({
 
   //Estilos referentes a los dados
   numeroDado: {
-    color: Colors.texto,
+    color: Colors.black,
     fontSize: tamanioCuatro,
     textAlign: "center",
     fontFamily: "roboto-bold",

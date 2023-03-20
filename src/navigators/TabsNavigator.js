@@ -48,7 +48,7 @@ const TabsNavigator = () => {
           tabBarIcon: ({ focused }) => (
             <View style={styles.tabBarIcon}>
               <FontAwesome5 name="dice" size={24} color={focused ? '#7F5DF0' : '#748C94'} />
-              <Text style={{ color: focused ? '#7F5DF0' : '#748C94' }}>Bolsa</Text>
+              <Text style={{ color: focused ? '#7F5DF0' : '#748C94' }}>Simulator</Text>
             </View>
           )
         }}

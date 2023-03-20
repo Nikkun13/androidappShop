@@ -8,7 +8,7 @@ const Stack = createNativeStackNavigator();
 const SimulatorNavigator = () => {
   return (
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Bag" component={BolsaScreen} />
+        <Stack.Screen name="Simulator" component={BolsaScreen} />
         <Stack.Screen name="Result" component={ResultadosScreen} />
       </Stack.Navigator>
   );
