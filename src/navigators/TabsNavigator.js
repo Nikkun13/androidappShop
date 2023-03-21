@@ -1,14 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import { Entypo } from '@expo/vector-icons'; 
 import { FontAwesome5 } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-
-
 import ShopNavigator from './ShopNavigator'
 import CartNavigator from './CartNavigator'
 import SimulatorNavigator from './SimulatorNavigator';
+import { styles } from "../../styles";
 
 
 const BottomTabs = createBottomTabNavigator()
@@ -58,27 +57,3 @@ const TabsNavigator = () => {
 }
 
 export default TabsNavigator
-
-const styles = StyleSheet.create({
-  tabBar: {
-    shadowColor: '#7F5DF0',
-    shadowOffset: {
-      width: 0,
-      height: 10
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 0.25,
-    elevation: 5,
-    position: 'absolute',
-    bottom: 25,
-    left: 20,
-    right: 20,
-    borderRadius: 15,
-    height: 90
-  },
-  tabBarIcon: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-})

@@ -1,5 +1,4 @@
 import { Modal as RNmodal, Text, View } from "react-native";
-
 import Button from "./Button";
 import React from "react";
 import { styles } from "../../styles";

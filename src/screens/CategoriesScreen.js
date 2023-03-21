@@ -17,7 +17,7 @@ const CategoriesScreen = ({ navigation }) => {
 
 
     return (
-        <>
+        <View style={styles.menu}>
         <View style={styles.centrar}>
             <Image style={styles.imagen} source={require('../../img/logo.png')} />
         </View>
@@ -27,7 +27,7 @@ const CategoriesScreen = ({ navigation }) => {
             renderItem={renderGridItem}
             numColumns={2}
         />
-        </>
+        </View>
     )
 }
 

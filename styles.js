@@ -10,16 +10,9 @@ const tamanioCinco = (20 * Dimensions.get("window").width) / 392;
 
 export const styles = StyleSheet.create({
   //Estilos referentes a cada Screen
-  container: {
-    flex: 1,
-    backgroundColor: Colors.fondoMenu,
-    alignItems: "center",
-    justifyContent: "center",
-  },
   menu: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: Colors.fondoMenu,
   },
   bolsa: {
     flex: 1,
@@ -32,6 +25,11 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.fondoResultado,
     alignItems: "center",
     justifyContent: "center",
+  },
+  screenDDS:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 
   //Estilos referentes al texto e imagenes
@@ -89,6 +87,20 @@ export const styles = StyleSheet.create({
     fontFamily: "roboto-bold",
     fontSize: tamanioTres,
   },
+  titleD: {
+    fontSize: tamanioCinco,
+    fontFamily: 'open-sans-bold',
+},
+details: {
+    fontSize: tamanioCuatro,
+},
+titleDDS:{
+  fontSize: tamanioCinco,
+  fontFamily: 'open-sans',
+},
+titleGI: {
+  fontFamily: 'open-sans-bold',
+},
 
   //Estilos referentes a los dados
   numeroDado: {
@@ -206,4 +218,59 @@ export const styles = StyleSheet.create({
   buttonText: {
     fontSize: tamanioCuatro,
   },
+
+  //DiceItem
+  
+  diceItem: {
+    padding: 20,
+    margin: 10,
+    borderRadius: 3,
+    backgroundColor: '#ccc'
+},
+
+
+//GridItem
+gridItem: {
+  flex: 1,
+  borderRadius: 6,
+  margin: 15,
+  height: 150,
+},
+containerGI: {
+  flex: 1,
+  borderRadius: 6,
+  shadowColor: 'black',
+  shadowOpacity: 0.26,
+  shadowOffset: { width: 0, height: 2 },
+  shadowRadius: 6,
+  elevation: 3,
+  padding: 8,
+  justifyContent: 'flex-end',
+  alignItems: 'flex-end'
+},
+
+
+//TabsNavigator
+tabBar: {
+  shadowColor: '#7F5DF0',
+  shadowOffset: {
+    width: 0,
+    height: 10
+  },
+  shadowOpacity: 0.25,
+  shadowRadius: 0.25,
+  elevation: 5,
+  position: 'absolute',
+  bottom: 25,
+  left: 20,
+  right: 20,
+  borderRadius: 15,
+  height: 90
+},
+tabBarIcon: {
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center'
+}
+
 });

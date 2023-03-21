@@ -1,20 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import React from 'react'
+import { styles } from "../../styles";
 
 const CartScreen = () => {
   return (
-    <View style={styles.container}>
+    <View style={styles.screenDDS}>
       <Text>CartScreen</Text>
     </View>
   )
 }
 
 export default CartScreen
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
-})
