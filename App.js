@@ -1,6 +1,8 @@
 import React from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 import {useFonts} from 'expo-font';
+import { Provider } from 'react-redux';
+import store from './src/store';
 
 import MainNavigator from './src/navigators/MainNavigator';
 
@@ -25,6 +27,8 @@ export default function App() {
   }
 
   return (
-    <MainNavigator />
+    <Provider store={store}>
+      <MainNavigator />
+    </Provider>
   );
 }

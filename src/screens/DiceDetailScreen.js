@@ -2,11 +2,11 @@ import { Text, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { styles } from "../../styles";
 import Button from "../components/Button";
+import { useSelector } from 'react-redux';
 
-const DiceDetailScreen = ({ route, navigation}) => {
+const DiceDetailScreen = ({ navigation }) => {
 
-  const { dice } = route.params
-
+  const dice = useSelector(state => state.dices.selected)
 
   useEffect(() => {
     navigation.setOptions({
