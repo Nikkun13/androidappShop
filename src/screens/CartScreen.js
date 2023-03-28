@@ -3,6 +3,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import CartItem from '../components/CartItem';
 import { styles } from "../../styles";
+import { removeItem } from '../store/actions/cart.action';
 
 const CartScreen = () => {
   const dispatch = useDispatch();

@@ -22,13 +22,14 @@ const CartReducer = (state = INITIAL_STATE,action) => {
                         return {
                             ...item,
                             quantity: item.quantity +1
-                        }};
+                        }
+                    };
                     return item;
                 });
             } else {
                 console.log("DOS");
-                const item = { ...action.item, quantity: 1 };
-                updatedCart = { ...state.items, item};
+                //const item = { ...action.item };
+                updatedCart = [ ...state.items, action.item];
             }
 
             return {
