@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import ShopNavigator from './ShopNavigator'
 import CartNavigator from './CartNavigator'
 import SimulatorNavigator from './SimulatorNavigator';
+import OrdersNavigator from './OrdersNavigator';
 import { styles } from "../../styles";
 
 
@@ -42,6 +43,18 @@ const TabsNavigator = () => {
           )
         }}
       />
+      <BottomTabs.Screen 
+          name="OrdersTab" 
+          component={OrdersNavigator}
+          options={{
+            tabBarIcon: ({focused})=>(
+              <View style={styles.tabBarIcon}>
+                <Ionicons name="document-text" size={24} color={focused ? '#5c0d07' : '#748C94'} />
+                <Text style={{ color: focused ? '#5c0d07' : '#748C94' }}>Orders</Text>
+              </View>
+            )
+          }}
+          />
             <BottomTabs.Screen name="Dice-tab" component={SimulatorNavigator}
         options={{
           tabBarIcon: ({ focused }) => (

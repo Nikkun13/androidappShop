@@ -271,6 +271,39 @@ tabBarIcon: {
   flex: 1,
   justifyContent: 'center',
   alignItems: 'center'
+},
+
+//CARTSCREEN
+
+containerCS:{
+  flex:1,
+  padding:12,
+  backgroundColor: '#fff',
+  paddingBottom:120,
+},
+list: {
+  flex:1, 
+},
+footer: {
+  padding:12,
+  borderTopColor: "#ccc",
+  borderTopWidth:1,
+},
+confirmCS:{
+  backgroundColor:"#F5F5F5",
+  borderRadius:10,
+  padding:10,
+  flexDirection: 'row',
+  alignItems:'center',
+  justifyContent: 'space-between',
+},
+total:{
+  flexDirection: 'row',
+},
+textCS:{
+  fontSize:18,
+  //fontFamily:'OpenSans_700Bold',
+  padding:8,
 }
 
 });

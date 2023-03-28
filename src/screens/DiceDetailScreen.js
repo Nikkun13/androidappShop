@@ -2,10 +2,12 @@ import { Text, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { styles } from "../../styles";
 import Button from "../components/Button";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addItem } from '../store/actions/cart.action';
 
 const DiceDetailScreen = ({ navigation }) => {
 
+  dispatch = useDispatch();
   const dice = useSelector(state => state.dices.selected)
 
   useEffect(() => {
@@ -13,6 +15,10 @@ const DiceDetailScreen = ({ navigation }) => {
       title: dice.name
     })
   },[])
+
+  const handlerAddItemCart = () => {
+    console.log("Agregado",dice);
+    dispatch(addItem({...dice, quantity:1}))};
 
   return (
     <View style={styles.screenDDS}>
@@ -22,7 +28,8 @@ const DiceDetailScreen = ({ navigation }) => {
       <Text>{dice.description}</Text>
       <Button
           styleButtonType={styles.buttonLanzar}
-          title="Comprar"
+          title="Agregar al carrito"
+          onPress={() => {handlerAddItemCart()}}
           disabled={false}
         />
     </View>

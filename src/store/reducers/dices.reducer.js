@@ -7,7 +7,7 @@ const initialState = {
     selected: null
 }
 
-DicesReducer = (state = initialState, action) => {
+const DicesReducer = (state = initialState, action) => {
     switch (action.type) {
         case SELECT_DICE:
             return {
@@ -22,6 +22,6 @@ DicesReducer = (state = initialState, action) => {
             default:
                 return state
     }
-}
+};
 
 export default DicesReducer
