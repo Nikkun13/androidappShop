@@ -5,14 +5,12 @@ const INITIAL_STATE = {
     total: 0
 };
 
-const sumTotal = (list) => {
-    console.log("TRES");
-    list.map(item => item.quantity*item.price).reduce((a,b) => a+b,0)}; //ERROR ACA?
+const sumTotal = (list) => 
+    list.map(item => item.quantity*item.price).reduce((a,b) => a+b,0);
 
 const CartReducer = (state = INITIAL_STATE,action) => {
     switch(action.type) {
         case ADD_ITEM:
-            console.log("UNO")
             let updatedCart = [];
             console.log(action.item)
 
@@ -27,8 +25,6 @@ const CartReducer = (state = INITIAL_STATE,action) => {
                     return item;
                 });
             } else {
-                console.log("DOS");
-                //const item = { ...action.item };
                 updatedCart = [ ...state.items, action.item];
             }
 

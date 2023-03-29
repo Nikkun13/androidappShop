@@ -2,6 +2,7 @@ export const DICES = [
     {
         id: '1',
         category: '1',
+        categoryName: 'Dados',
         name: '4 caras',
         description: 'Dados de 4 caras, varios colores',
         weight: '5 gr',
@@ -10,6 +11,7 @@ export const DICES = [
     {
         id: '2',
         category: '1',
+        categoryName: 'Dados',
         name: '6 caras',
         description: 'Dados de 6 caras, clásicos, varios colores',
         weight: '6 gr',
@@ -18,6 +20,7 @@ export const DICES = [
     {
         id: '3',
         category: '1',
+        categoryName: 'Dados',
         name: '8 caras',
         description: 'Dados de 8 caras, varios colores',
         weight: '6 gr',
@@ -26,6 +29,7 @@ export const DICES = [
     {
         id: '4',
         category: '1',
+        categoryName: 'Dados',
         name: '10 caras',
         description: 'Dados de 10 caras, versiones de unidades, decenas y centenas, varios colores',
         weight: '6 gr',
@@ -34,6 +38,7 @@ export const DICES = [
     {
         id: '5',
         category: '1',
+        categoryName: 'Dados',
         name: '12 caras',
         description: 'Dados de 12 caras, varios colores',
         weight: '7 gr',
@@ -42,6 +47,7 @@ export const DICES = [
     {
         id: '6',
         category: '1',
+        categoryName: 'Dados',
         name: '20 caras',
         description: 'Dados de 20 caras, utilizados en el sistema d20, varios colores',
         weight: '8 gr',
@@ -50,6 +56,7 @@ export const DICES = [
     {
         id: '7',
         category: '2',
+        categoryName: 'Miniaturas',
         name: 'Humanoides',
         description: 'Heroes, campesinos, soldados, esclavos...',
         weight: '10 gr',
@@ -58,6 +65,7 @@ export const DICES = [
     {
         id: '8',
         category: '2',
+        categoryName: 'Miniaturas',
         name: 'Monstruos',
         description: 'Golems, mutantes, tentáculos, aliens...',
         weight: '15 gr',
@@ -66,6 +74,7 @@ export const DICES = [
     {
         id: '9',
         category: '2',
+        categoryName: 'Miniaturas',
         name: 'Animales',
         description: 'Caballos, vacas, perros, chanchos...',
         weight: '15 gr',
@@ -74,6 +83,7 @@ export const DICES = [
     {
         id: '10',
         category: '2',
+        categoryName: 'Miniaturas',
         name: 'Construcciones',
         description: 'Muebles, casas, torres, establos...',
         weight: '50 gr',
@@ -82,6 +92,7 @@ export const DICES = [
     {
         id: '11',
         category: '2',
+        categoryName: 'Miniaturas',
         name: 'Naturaleza',
         description: 'Arboles, rocas, piedras, montañas...',
         weight: '50 gr',
@@ -90,6 +101,7 @@ export const DICES = [
     {
         id: '12',
         category: '3',
+        categoryName: 'Libros',
         name: 'Manual del Jugador D&D 5ed',
         description: 'Reglas para los jugadores',
         weight: '100 gr',
@@ -98,6 +110,7 @@ export const DICES = [
     {
         id: '13',
         category: '3',
+        categoryName: 'Libros',
         name: 'Manual del Master D&D 5ed',
         description: 'Reglas para el Master',
         weight: '100 gr',
@@ -106,6 +119,7 @@ export const DICES = [
     {
         id: '14',
         category: '3',
+        categoryName: 'Libros',
         name: 'Manual de Monstruos D&D 5ed',
         description: 'Compendium de criaturas y enemigos',
         weight: '100 gr',
@@ -114,6 +128,7 @@ export const DICES = [
     {
         id: '15',
         category: '4',
+        categoryName: 'Juegos',
         name: 'Gloomhaven',
         description: 'Juego de mesa de rol',
         weight: '150 gr',

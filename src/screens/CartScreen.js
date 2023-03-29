@@ -3,25 +3,25 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import CartItem from '../components/CartItem';
 import { styles } from "../../styles";
-import { removeItem } from '../store/actions/cart.action';
+import { removeItem, confirmCart } from '../store/actions/cart.action';
 
 const CartScreen = () => {
   const dispatch = useDispatch();
-  const items = useSelector(state => state.cart.items);
+  const cart = useSelector(state => state.cart.items);
   const total = useSelector(state => state.cart.total);
 
-  const onHandleConfirmCart = ()=>console.log("Confirma carrito");
-  const handlerDeleteItem = (itemID) => dispatch(removeItem(itemID));
+  const onHandleConfirmCart = ()=> dispatch(confirmCart(cart, total));
+  const handlerDeleteItem = (itemId) => dispatch(removeItem(itemId));
 
-  const renderItem = (data) => {
-    <CartItem item={data.item} onDelete={handlerDeleteItem} />
-  };
+  const renderItem = ({item}) => (
+    <CartItem item={item} onDelete={handlerDeleteItem} />
+  );
 
   return (
     <View style={styles.containerCS}>
       <View style={styles.list}>
         <FlatList 
-          data={items}     
+          data={cart}     
           renderItem={renderItem} 
           keyExtractor={(item)=>item.id}
         />

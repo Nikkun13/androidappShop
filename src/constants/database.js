@@ -1,1 +1,1 @@
-export const URL_API ='https://tiendamediaapp-default-rtdb.firebaseio.com'
+export const URL_API ='https://tiendamediaapp-default-rtdb.firebaseio.com/'
