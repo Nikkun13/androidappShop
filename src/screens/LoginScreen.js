@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, KeyboardAvoidingView, TouchableOpacity } from '
 import React, { useCallback, useReducer } from 'react'
 import { Colors } from '../constants/colors'
 import { useDispatch, useSelector } from 'react-redux'
-import { signUp } from '../store/actions/auth.action'//CAMBIAR ESTO
+import { signIn } from '../store/actions/auth.action'
 import Input from '../components/input'
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
@@ -31,7 +31,7 @@ const formReducer = (state,action) => {
 }
 
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
 
     const dispacth =useDispatch();
     const isAuthLoading = useSelector(state => state.auth.isLoading);
@@ -50,7 +50,7 @@ const LoginScreen = () => {
 
     const onHandlerRegister = () => {
         if(!formState.formIsValid){
-        dispacth(signUp(email,password))//CAMBIAR ESTO
+        dispacth(signIn(email,password))
         } else {
             alert('Por favor, ingrese un email y una contraseña válidos')
         }
@@ -58,7 +58,7 @@ const LoginScreen = () => {
 
     const handleChangedText = useCallback((inputIdentifier, inputValue, inputValidity) => {
         dispatchFormState({
-            type: FORM_INPUT_UPDATE,//CAMBIAR ESTO
+            type: FORM_INPUT_UPDATE,
             value: inputValue,
             isValid: inputValidity,
             input: inputIdentifier
@@ -104,8 +104,8 @@ const LoginScreen = () => {
                         ¿No tienes una cuenta?
                     </Text>
                     <TouchableOpacity>
-                        <Text style={styles.promptButton}>Registrarse</Text> 
-                        {/*Agregar navegación al registro */}
+                        <Text style={styles.promptButton} onPress={() => {
+        navigation.navigate('Register')}}>Registrarse</Text> 
                     </TouchableOpacity>
                 </View>
             </View>

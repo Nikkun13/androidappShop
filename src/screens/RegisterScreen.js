@@ -31,7 +31,7 @@ const formReducer = (state,action) => {
 }
 
 
-const RegisterScreen = () => {
+const RegisterScreen = ({ navigation }) => {
 
     const dispacth =useDispatch();
     const isAuthLoading = useSelector(state => state.auth.isLoading);
@@ -104,8 +104,9 @@ const RegisterScreen = () => {
                         ¿Ya tienes una cuenta?
                     </Text>
                     <TouchableOpacity>
-                        <Text style={styles.promptButton}>Iniciar sesión</Text>
-                        {/*Agregar navegación al Login */}
+                        <Text style={styles.promptButton} 
+                        onPress={() => {navigation.navigate('Login')}}
+                        >Iniciar sesión</Text>
                     </TouchableOpacity>
                 </View>
             </View>
