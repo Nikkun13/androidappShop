@@ -10,7 +10,9 @@ const CartScreen = () => {
   const cart = useSelector(state => state.cart.items);
   const total = useSelector(state => state.cart.total);
 
-  const onHandleConfirmCart = ()=> dispatch(confirmCart(cart, total));
+  const onHandleConfirmCart = ()=> { 
+    dispatch(confirmCart(cart, total));
+    };
   const handlerDeleteItem = (itemId) => dispatch(removeItem(itemId));
 
   const renderItem = ({item}) => (

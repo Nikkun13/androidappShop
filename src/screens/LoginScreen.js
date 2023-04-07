@@ -3,7 +3,7 @@ import React, { useCallback, useReducer } from 'react'
 import { Colors } from '../constants/colors'
 import { useDispatch, useSelector } from 'react-redux'
 import { signIn } from '../store/actions/auth.action'
-import Input from '../components/input'
+import Input from '../components/Inputs'
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
 
@@ -49,8 +49,8 @@ const LoginScreen = ({ navigation }) => {
     });
 
     const onHandlerRegister = () => {
-        if(!formState.formIsValid){
-        dispacth(signIn(email,password))
+        if(formState.formIsValid){
+        dispacth(signIn(formState.inputValues.email,formState.inputValues.password))
         } else {
             alert('Por favor, ingrese un email y una contraseña válidos')
         }
@@ -74,7 +74,7 @@ const LoginScreen = ({ navigation }) => {
                     initialValue={formState.inputValues.email}
                     initiallyValid={formState.inputValidities.email}
                     onInputChange={handleChangedText}
-                    id='id'
+                    id='email'
                     required={true}
                     email
                     minLength={5}
@@ -89,7 +89,6 @@ const LoginScreen = ({ navigation }) => {
                     onInputChange={handleChangedText}
                     id='password'
                     required={true}
-                    password
                     minLength={5}
                     label='Password'
                     errorText='Por favor, introduzca una Password válido'
