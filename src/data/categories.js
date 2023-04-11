@@ -16,7 +16,7 @@ export const CATEGORIES = [
     },
     {
         id: '4',
-        title: 'Juegos',
+        title: 'Remeras',
         color: '#f5d142'
     }
 ]

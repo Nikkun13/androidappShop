@@ -1,28 +1,27 @@
-import React from 'react';
-import * as SplashScreen from 'expo-splash-screen';
-import {useFonts} from 'expo-font';
-import { Provider } from 'react-redux';
-import store from './src/store';
+import React from "react";
+import * as SplashScreen from "expo-splash-screen";
+import { useFonts } from "expo-font";
+import { Provider } from "react-redux";
+import store from "./src/store";
 
-import MainNavigator from './src/navigators/MainNavigator';
+import MainNavigator from "./src/navigators/MainNavigator";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-
   const [fontsLoaded] = useFonts({
     "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
     "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
     "roboto-bold": require("./assets/fonts/RobotoSlab-Bold.ttf"),
-  })
+  });
 
-  React.useEffect(() =>{
-    if(fontsLoaded){
+  React.useEffect(() => {
+    if (fontsLoaded) {
       SplashScreen.hideAsync();
     }
-  }, [fontsLoaded])
+  }, [fontsLoaded]);
 
-  if(!fontsLoaded){
+  if (!fontsLoaded) {
     return null;
   }
 

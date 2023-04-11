@@ -1,51 +1,28 @@
-import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
-import React from 'react'
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { Colors }  from '../constants/colors';
+import { Text, View, TouchableOpacity } from "react-native";
+import React from "react";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { Colors } from "../constants/colors";
+import { styles } from "../../styles";
 
-const CartItem = ({item,onDelete}) => {
-
+const CartItem = ({ item, onDelete }) => {
   return (
-    <View style={styles.item}>
+    <View style={styles.itemCart}>
+      <View>
+        <Text style={styles.headerCart}>
+          {item.categoryName} - {item.name}
+        </Text>
+      </View>
+      <View style={styles.detailCart}>
         <View>
-            <Text style={styles.header}>{item.categoryName} - {item.name}</Text>
+          <Text style={styles.itemCart}>Cantidad: {item.quantity}</Text>
+          <Text>{item.price}</Text>
         </View>
-        <View style={styles.detail}>
-            <View>
-                <Text>Cantidad: {item.quantity}</Text>
-                <Text>{item.price}</Text>
-            </View>
-            <TouchableOpacity onPress={()=>onDelete(item.id)}>
-                <Ionicons name="trash" size={24} color={Colors.accent} />
-            </TouchableOpacity>
-        </View>
+        <TouchableOpacity onPress={() => onDelete(item.id)}>
+          <Ionicons name="trash" size={24} color={Colors.accent} />
+        </TouchableOpacity>
+      </View>
     </View>
-  )
-}
+  );
+};
 
-export default CartItem
-
-const styles = StyleSheet.create({
-    item:{
-        flex:1,
-        padding:8,
-        borderBottomWidth:1,
-        borderBottomColor: '#ccc'
-    },
-    header:{
-        fontSize:18,
-        //fontFamily: 'OpenSans_700Bold',
-    },
-    detail:{
-        flex:1,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        justifyContent: 'space-between'
-    },
-    text: {
-        fontSize:16,
-        fontFamily:'OpenSans_400Regular'
-    }
-
-})
+export default CartItem;

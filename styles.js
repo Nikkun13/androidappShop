@@ -302,8 +302,165 @@ total:{
 },
 textCS:{
   fontSize:18,
-  //fontFamily:'OpenSans_700Bold',
+  fontFamily: "open-sans-bold",
   padding:8,
-}
+},
+
+//CartItem
+
+itemCart:{
+  flex:1,
+  padding:8,
+  borderBottomWidth:1,
+  borderBottomColor: '#ccc'
+},
+headerCart:{
+  fontSize:18,
+  fontFamily:  "open-sans-bold",
+},
+detailCart:{
+  flex:1,
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  alignItems: 'center',
+  justifyContent: 'space-between'
+},
+textCart: {
+  fontSize:16,
+  fontFamily:'OpenSans_400Regular'
+},
+
+//ImagenSelector
+
+containerIS:{
+  marginBottom: 10,
+},
+previewIS: {
+  width: 200,
+  height: 200,
+  marginBottom: 10,
+  justifyContent: 'center',
+  alignItems: 'center',
+  borderColor: '#777',
+  borderWidth: 1,
+},
+imageIS: {
+  width: '100%',
+  height: '100%',
+},
+
+//Inputs
+
+formControlInputs: {
+  width: '100%'
+},
+labelInputs: {
+  fontFamily:  "open-sans-bold",
+  marginVertical: 8
+},
+inputInputs: {
+  paddingHorizontal: 2,
+  paddingVertical: 5,
+  borderBottomColor: '#ccc',
+  borderBottomWidth: 1
+},
+errorContainerInputs: {
+  marginVertical: 5
+},
+errorTextInputs: {
+  fontFamily:  "open-sans-bold",
+  color: 'red',
+},
+
+//Order Item
+
+orderOI: {
+  flexDirection: "row",
+  justifyContent: "space-between",
+  alignItems: "center",
+  padding: 10,
+  margin: 10,
+  borderColor: "#ccc",
+  borderWidth: 1,
+  borderRadius: 6,
+},
+dateOI: {
+  fontSize: 18,
+},
+totalOI: {
+  fontSize: 18,
+  fontFamily: "open-sans-bold"
+},
+
+//Register y Login
+
+screenRyL: {
+  flex: 1,
+  justifyContent: "center",
+  alignItems: "center",
+},
+titleRyL: {
+  fontSize: 24,
+  fontFamily: "open-sans-bold",
+  marginBottom: 12,
+  textAlign: "center",
+},
+containerRyL: {
+  width: "80%",
+  maxWidth: 400,
+  padding: 12,
+  margin: 12,
+  borderColor: "#ccc",
+  borderWidth: 1,
+  borderRadius: 10,
+  backgroundColor: "#fff",
+},
+formRyL: {
+  width: "100%",
+  justifyContent: "center",
+  alignItems: "flex-start",
+},
+labelRyL: {
+  fontSize: 16,
+  fontFamily: "open-sans-bold"
+},
+textInputRyL: {
+  width: "100%",
+  height: 40,
+  borderBottomColor: "#ccc",
+  borderBottomWidth: 1,
+  marginBottom: 12,
+},
+ButtonRyL: {
+  width: "100%",
+  justifyContent: "center",
+  height: 40,
+  backgroundColor: Colors.primary,
+  marginVertical: 12,
+},
+ButtonTextRyL: {
+  fontSize: 18,
+  fontFamily: "open-sans-bold",
+  textAlign: "center",
+  color: "#fff",
+},
+promptRyL: {
+  alignItems: "center",
+},
+promptMessageRyL: {
+  fontSize: 16,
+  fontFamily: "open-sans",
+  color: "#333",
+},
+promptButtonRyL: {
+  fontSize: 16,
+  fontFamily: "open-sans-bold",
+  color: Colors.primary,
+},
+buttonRyL: {
+  backgroundColor: Colors.primary,
+  marginVertical: 20,
+},
+
 
 });

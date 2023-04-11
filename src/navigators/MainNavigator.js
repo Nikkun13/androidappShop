@@ -5,8 +5,7 @@ import AuthNavigator from "./AuthNavigator";
 import { useSelector } from "react-redux";
 
 const MainNavigator = () => {
-  const isAuth = useSelector(state => state.auth.userId);
-
+  const isAuth = useSelector((state) => state.auth.userId);
   return (
     <NavigationContainer>
       {isAuth ? <TabsNavigator /> : <AuthNavigator />}

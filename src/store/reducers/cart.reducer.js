@@ -1,59 +1,57 @@
-import { ADD_ITEM, CONFIRM_CART, REMOVE_ITEM } from '../actions/cart.action';
+import { ADD_ITEM, CONFIRM_CART, REMOVE_ITEM } from "../actions/cart.action";
 
 const INITIAL_STATE = {
-    items: [],
-    total: 0
+  items: [],
+  total: 0,
 };
 
-const sumTotal = (list) => 
-    list.map(item => item.quantity*item.price).reduce((a,b) => a+b,0);
+const sumTotal = (list) =>
+  list.map((item) => item.quantity * item.price).reduce((a, b) => a + b, 0);
 
-const CartReducer = (state = INITIAL_STATE,action) => {
-    switch(action.type) {
-        case ADD_ITEM:
-            let updatedCart = [];
-            console.log(action.item)
+const CartReducer = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    case ADD_ITEM:
+      let updatedCart = [];
 
-            if (state.items.find(item=>item.id === action.item.id)) {
-                updatedCart = state.items.map(item=>{
-                    if (item.id === action.item.id) {
-                        return {
-                            ...item,
-                            quantity: item.quantity +1
-                        }
-                    };
-                    return item;
-                });
-            } else {
-                updatedCart = [ ...state.items, action.item];
-            }
-
+      if (state.items.find((item) => item.id === action.item.id)) {
+        updatedCart = state.items.map((item) => {
+          if (item.id === action.item.id) {
             return {
-                ...state,
-                items: updatedCart,
-                total: sumTotal(updatedCart)
+              ...item,
+              quantity: item.quantity + 1,
             };
-        
-        case REMOVE_ITEM:
-            const filteredCart = state.items.filter(item => item.id !== action.itemID);
-            return {
-                ...state,
-                items: filteredCart,
-                total: sumTotal(filteredCart),
-            };
-        case CONFIRM_CART:
+          }
+          return item;
+        });
+      } else {
+        updatedCart = [...state.items, action.item];
+      }
 
-            return {
-                ...state,
-                items: [],
-                total: 0
-            }
+      return {
+        ...state,
+        items: updatedCart,
+        total: sumTotal(updatedCart),
+      };
 
-        default:
+    case REMOVE_ITEM:
+      const filteredCart = state.items.filter(
+        (item) => item.id !== action.itemID
+      );
+      return {
+        ...state,
+        items: filteredCart,
+        total: sumTotal(filteredCart),
+      };
+    case CONFIRM_CART:
+      return {
+        ...state,
+        items: [],
+        total: 0,
+      };
 
-            return state;
-    }
-
+    default:
+      return state;
+  }
 };
 
-export default CartReducer
+export default CartReducer;

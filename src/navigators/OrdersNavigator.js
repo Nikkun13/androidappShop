@@ -1,9 +1,8 @@
-import { Platform } from 'react-native'
-import React from 'react'
-
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import OrdersScreen from '../screens/OrdersScreen'
-import { Colors } from '../constants/colors'
+import { Platform } from "react-native";
+import React from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import OrdersScreen from "../screens/OrdersScreen";
+import { Colors } from "../constants/colors";
 
 const Stack = createNativeStackNavigator();
 
@@ -12,23 +11,23 @@ const OrderNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: Platform.OS === 'android' ? Colors.primary : ''
+          backgroundColor: Platform.OS === "android" ? Colors.primary : "",
         },
-        headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primary,
+        headerTintColor: Platform.OS === "android" ? "white" : Colors.primary,
         headerTitleStyle: {
-          fontFamily: 'open-sans'
-        }
+          fontFamily: "open-sans",
+        },
       }}
     >
       <Stack.Screen
         name="Orders"
         component={OrdersScreen}
         options={{
-          title: 'Ordenes'
+          title: "Ordenes",
         }}
       />
     </Stack.Navigator>
-  )
-}
+  );
+};
 
-export default OrderNavigator
+export default OrderNavigator;
