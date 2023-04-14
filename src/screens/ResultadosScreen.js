@@ -2,6 +2,7 @@ import { FlatList, Text, View } from "react-native";
 import Button from "../components/Button";
 import React from "react";
 import { styles } from "../../styles";
+import { insertTirada } from "../db";
 
 const ResultadosScreen = ({ route, navigation }) => {
   const dadosBolsa = route.params.dados;
@@ -23,6 +24,13 @@ const ResultadosScreen = ({ route, navigation }) => {
       </View>
     );
   }
+
+  guardarTirada = async () => {
+    const title = Date.now().toString()
+    const dbResult = await insertTirada(title)
+    console.log(title)
+  }
+
   return (
     <View style={styles.resultPage}>
       <View>
@@ -44,13 +52,21 @@ const ResultadosScreen = ({ route, navigation }) => {
         )}
         keyExtractor={(item) => item.id.toString()}
       />
-      <View style={styles.fondo}>
+      <View style={[styles.inputContainer, styles.fondo]}>
         <Button
           styleButtonType={styles.buttonRegresar}
           onPress={() => {
             navigation.navigate("Simulator");
           }}
           title="Ir a la Bolsa de Dados"
+          disabled={false}
+        />
+        <Button
+          styleButtonType={styles.buttonVaciar}
+          onPress={() => {
+            guardarTirada();
+          }}
+          title="Guardar Tirada"
           disabled={false}
         />
       </View>

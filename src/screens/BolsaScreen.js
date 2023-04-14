@@ -3,7 +3,9 @@ import React, { useEffect, useState } from "react";
 
 import Button from "../components/Button";
 import Modal from "../components/Modal";
+import ModalSQL from "../components/ModalSQL";
 import { styles } from "../../styles";
+import { fetchTirada } from "../db";
 
 const BolsaScreen = ({ navigation }) => {
   const [diceNumber, setDiceNumber] = useState("");
@@ -14,7 +16,9 @@ const BolsaScreen = ({ navigation }) => {
   const [desactivadoLanzar, setDesactivadoLanzar] = useState(true);
   const [selectedDice, setSelectedDice] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisibleSQL, setModalVisibleSQL] = useState(false);
   const [dices, setDices] = useState([]);
+  const [dbResult, setDbResult] = useState([]);
 
   useEffect(() => {
     if (dices.length < 1) {
@@ -124,8 +128,19 @@ const BolsaScreen = ({ navigation }) => {
     setSelectedDice(null);
   };
 
+  const cancelModalSQL = () => {
+    setModalVisibleSQL(false);
+  };
+
   const vaciar = () => {
     setDices([]);
+  };
+
+  const cargado = async () => {
+    console.log("uno");
+    setDbResult(await fetchTirada());
+    console.log("tres");
+    console.log(dbResult);
   };
 
   const lanzamiento = (dices) => {
@@ -186,13 +201,30 @@ const BolsaScreen = ({ navigation }) => {
         cancelModal={cancelModal}
         desactivadoOpcionTresDados={desactivadoOpcionTresDados}
       />
+      <ModalSQL
+        modalVisibleSQL={modalVisibleSQL}
+        cancelModalSQL={cancelModalSQL}
+        dbResult={dbResult}
+      />
       <View style={[styles.inputContainer, styles.fondo]}>
-        <Button
-          styleButtonType={styles.buttonLanzar}
-          onPress={() => lanzamiento(dices)}
-          title="Lanzar Dados"
-          disabled={desactivadoLanzar}
-        />
+        {dices.length < 1 ? (
+          <Button
+            styleButtonType={styles.buttonCancelar}
+            onPress={() => {
+              cargado();
+              setModalVisibleSQL(true);
+            }}
+            title="Cargar tirada"
+            disabled={false}
+          />
+        ) : (
+          <Button
+            styleButtonType={styles.buttonLanzar}
+            onPress={() => lanzamiento(dices)}
+            title="Lanzar Dados"
+            disabled={desactivadoLanzar}
+          />
+        )}
         <Button
           styleButtonType={styles.buttonVaciar}
           onPress={vaciar}
