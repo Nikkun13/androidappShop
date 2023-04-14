@@ -1,8 +1,7 @@
-import { FlatList, Modal as RNmodal, Text, View } from "react-native";
+import { FlatList, Modal as RNmodal, Text, View, Pressable } from "react-native";
 import Button from "./Button";
 import React from "react";
 import { styles } from "../../styles";
-import { fetchTirada } from "../db";
 
 const ModalSQL = ({
   modalVisibleSQL,
@@ -35,7 +34,6 @@ const ModalSQL = ({
                   data={dbResult}
                   renderItem={(data) => (
                     <Pressable
-                      style={[styles.contentList]}
                       onPress={() => {
                         
                       }}

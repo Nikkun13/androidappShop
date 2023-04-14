@@ -5,6 +5,7 @@ import Button from "../components/Button";
 import Modal from "../components/Modal";
 import ModalSQL from "../components/ModalSQL";
 import { styles } from "../../styles";
+//AGREGADO FETHCTIRADA
 import { fetchTirada } from "../db";
 
 const BolsaScreen = ({ navigation }) => {
@@ -18,6 +19,7 @@ const BolsaScreen = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalVisibleSQL, setModalVisibleSQL] = useState(false);
   const [dices, setDices] = useState([]);
+  //AGREGADO DBRESULT
   const [dbResult, setDbResult] = useState([]);
 
   useEffect(() => {
@@ -128,6 +130,7 @@ const BolsaScreen = ({ navigation }) => {
     setSelectedDice(null);
   };
 
+  //AGREGADO MODALSQL
   const cancelModalSQL = () => {
     setModalVisibleSQL(false);
   };
@@ -136,11 +139,13 @@ const BolsaScreen = ({ navigation }) => {
     setDices([]);
   };
 
+  //AGREGADO FUNCION CON FETCHTIRADA
   const cargado = async () => {
     console.log("uno");
-    setDbResult(await fetchTirada());
-    console.log("tres");
-    console.log(dbResult);
+    const tiradaGuardada = await fetchTirada()
+    console.log(tiradaGuardada)
+    setDbResult(tiradaGuardada);
+    console.log("dos");
   };
 
   const lanzamiento = (dices) => {
@@ -201,12 +206,14 @@ const BolsaScreen = ({ navigation }) => {
         cancelModal={cancelModal}
         desactivadoOpcionTresDados={desactivadoOpcionTresDados}
       />
+      {/* AGREGADO MODAL SQL */}
       <ModalSQL
         modalVisibleSQL={modalVisibleSQL}
         cancelModalSQL={cancelModalSQL}
         dbResult={dbResult}
       />
       <View style={[styles.inputContainer, styles.fondo]}>
+        {/* AGREGADO BOTON DE CARGAR */}
         {dices.length < 1 ? (
           <Button
             styleButtonType={styles.buttonCancelar}

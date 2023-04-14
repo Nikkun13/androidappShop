@@ -2,6 +2,7 @@ import { FlatList, Text, View } from "react-native";
 import Button from "../components/Button";
 import React from "react";
 import { styles } from "../../styles";
+//AGREGADO INSERTTIRADA
 import { insertTirada } from "../db";
 
 const ResultadosScreen = ({ route, navigation }) => {
@@ -25,10 +26,11 @@ const ResultadosScreen = ({ route, navigation }) => {
     );
   }
 
+  //AGREGADO GUARDARTIRADA
   guardarTirada = async () => {
     const title = Date.now().toString()
     const dbResult = await insertTirada(title)
-    console.log(title)
+    console.log(dbResult)
   }
 
   return (
@@ -61,6 +63,7 @@ const ResultadosScreen = ({ route, navigation }) => {
           title="Ir a la Bolsa de Dados"
           disabled={false}
         />
+        {/* AGREGADO BOTON GUARDARTIRADA */}
         <Button
           styleButtonType={styles.buttonVaciar}
           onPress={() => {
