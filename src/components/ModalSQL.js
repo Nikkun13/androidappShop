@@ -1,16 +1,15 @@
-import { FlatList, Modal as RNmodal, Text, View, Pressable } from "react-native";
+import {
+  FlatList,
+  Modal as RNmodal,
+  Text,
+  View,
+  Pressable,
+} from "react-native";
 import Button from "./Button";
 import React from "react";
 import { styles } from "../../styles";
 
-const ModalSQL = ({
-  modalVisibleSQL,
-  cancelModalSQL,
-  dbResult
-}) => {
-
-
-
+const ModalSQL = ({ modalVisibleSQL, cancelModalSQL, dbResult }) => {
   return (
     <RNmodal animationType="slide" transparent={true} visible={modalVisibleSQL}>
       <View style={styles.modalMainView}>
@@ -31,18 +30,19 @@ const ModalSQL = ({
           </View>
           <View styles={styles.modalActions}>
             <FlatList
-                  data={dbResult}
-                  renderItem={(data) => (
-                    <Pressable
-                      onPress={() => {
-                        
-                      }}
-                    >
-                      <Text>{data.item.title}</Text>
-                    </Pressable>
-                  )}
-                  keyExtractor={(item) => item.id.toString()}
+              data={dbResult}
+              renderItem={(data) => (
+                <Pressable
+                  onPress={() => {
+                    alert("Ha seleccionado esto");
+                  }}
+                >
+                  <Text>{data.item.title}</Text>
+                </Pressable>
+              )}
+              keyExtractor={(item) => item.id.toString()}
             />
+            {console.log("ey")}
             <Button
               styleButtonType={styles.buttonCancelar}
               onPress={() => {

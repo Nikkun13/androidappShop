@@ -143,8 +143,8 @@ const BolsaScreen = ({ navigation }) => {
   const cargado = async () => {
     console.log("uno");
     const tiradaGuardada = await fetchTirada()
-    console.log(tiradaGuardada)
-    setDbResult(tiradaGuardada);
+    console.log(tiradaGuardada.rows._array)
+    setDbResult(tiradaGuardada.rows._array);
     console.log("dos");
   };
 
