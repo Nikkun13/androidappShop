@@ -1,12 +1,12 @@
 import * as SQLite from 'expo-sqlite';
 
-const db = SQLite.openDatabase('tirada.db');
+const db = SQLite.openDatabase('tiradaDados.db');
 
 export const init = () => {
     const promise = new Promise((resolve, reject) => {
         db.transaction(tx => {
             tx.executeSql(
-                'CREATE TABLE IF NOT EXISTS tirada (id INTEGER PRIMARY KEY NOT NULL, title TEXT NOT NULL);',
+                'CREATE TABLE IF NOT EXISTS tiradaDados (id INTEGER PRIMARY KEY NOT NULL, title TEXT NOT NULL, dados TEXT NOT NULL);',
                 [],
                 () => { resolve()},
                 (_, err) => { reject(err) })
@@ -17,12 +17,12 @@ export const init = () => {
 
 }
 
-export const insertTirada = (title) => {
+export const insertTirada = (title, dados) => {
     const promise = new Promise((resolve,reject) => {
         db.transaction(tx => {
             tx.executeSql(
-                `INSERT INTO tirada (title) VALUES (?);`,
-                [title],
+                `INSERT INTO tiradaDados (title, dados) VALUES (?, ?);`,
+                [title, dados],
                 (_, result) => {
                     resolve(result);
                 },
@@ -39,7 +39,7 @@ export const fetchTirada = () => {
     const promise = new Promise((resolve, reject) => {
         db.transaction(tx => {
             tx.executeSql(
-                'SELECT * FROM tirada',
+                'SELECT * FROM tiradaDados',
                 [],
                 (_, result) => {
                     console.log('Resultado ', result.rows)

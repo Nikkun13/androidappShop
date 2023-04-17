@@ -462,5 +462,14 @@ buttonRyL: {
   marginVertical: 20,
 },
 
-
+flatlistSQL:{
+  maxHeight:200,
+},
+pressableSQL: {
+  alignItems: 'center',
+  paddingVertical: 10,
+},
+textSQL: {
+  fontFamily: "open-sans-bold",
+}
 });

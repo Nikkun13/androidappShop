@@ -9,7 +9,34 @@ import Button from "./Button";
 import React from "react";
 import { styles } from "../../styles";
 
-const ModalSQL = ({ modalVisibleSQL, cancelModalSQL, dbResult }) => {
+const ModalSQL = ({
+  navigation,
+  modalVisibleSQL,
+  cancelModalSQL,
+  dbResult,
+  lengthResult,
+}) => {
+  let dataGT = [];
+  let i = 0;
+
+  console.log("Primer Dato", dbResult);
+  console.log("Segundo Dato", lengthResult);
+
+  //Creo lo siguiente es inncesario, pero lo probe para ver si se arreglaba el 
+  //espacio en blanco dentro del modal. NO se arreglo con esto, pero aun asi lo deje
+  while (lengthResult > i) {
+    dataGT[i] = dbResult[i];
+    i = i + 1;
+    console.log("Dentro while", i, dataGT);
+  }
+
+  cargarTirada = (dadosTirada) => {
+    const dices = JSON.parse(dadosTirada.dados)
+    modalVisibleSQL=false;
+    navigation.navigate("Result", { dados: dices, tiradaGuardada : true });
+  }
+  
+
   return (
     <RNmodal animationType="slide" transparent={true} visible={modalVisibleSQL}>
       <View style={styles.modalMainView}>
@@ -29,20 +56,26 @@ const ModalSQL = ({ modalVisibleSQL, cancelModalSQL, dbResult }) => {
             <Text style={styles.textoTres}>Seleccione:</Text>
           </View>
           <View styles={styles.modalActions}>
-            <FlatList
-              data={dbResult}
+            {lengthResult === 0?
+            (
+              <Text>No hay datos cargados</Text>
+            ):(
+              <FlatList
+              style={styles.flatlistSQL}
+              data={dataGT}
               renderItem={(data) => (
                 <Pressable
+                style={styles.pressableSQL}
                   onPress={() => {
-                    alert("Ha seleccionado esto");
+                    cargarTirada(data.item);
                   }}
                 >
-                  <Text>{data.item.title}</Text>
+                  <Text style={styles.textSQL} >► {data.item.title} ◄</Text>
                 </Pressable>
               )}
               keyExtractor={(item) => item.id.toString()}
             />
-            {console.log("ey")}
+            )}
             <Button
               styleButtonType={styles.buttonCancelar}
               onPress={() => {

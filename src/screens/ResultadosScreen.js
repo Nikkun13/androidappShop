@@ -7,6 +7,7 @@ import { insertTirada } from "../db";
 
 const ResultadosScreen = ({ route, navigation }) => {
   const dadosBolsa = route.params.dados;
+  const tiradaGuardada = route.params.tiradaGuardada;
 
   if (dadosBolsa == undefined) {
     return (
@@ -28,10 +29,12 @@ const ResultadosScreen = ({ route, navigation }) => {
 
   //AGREGADO GUARDARTIRADA
   guardarTirada = async () => {
-    const title = Date.now().toString()
-    const dbResult = await insertTirada(title)
-    console.log(dbResult)
-  }
+    const title = Date.now().toString();
+    const tiradaJSON = JSON.stringify(dadosBolsa);
+    console.log("Tirada en JSON", tiradaJSON);
+    const dbResult = await insertTirada(title, tiradaJSON);
+    console.log(dbResult);
+  };
 
   return (
     <View style={styles.resultPage}>
@@ -64,14 +67,16 @@ const ResultadosScreen = ({ route, navigation }) => {
           disabled={false}
         />
         {/* AGREGADO BOTON GUARDARTIRADA */}
-        <Button
-          styleButtonType={styles.buttonVaciar}
-          onPress={() => {
-            guardarTirada();
-          }}
-          title="Guardar Tirada"
-          disabled={false}
-        />
+        {tiradaGuardada ? null : (
+          <Button
+            styleButtonType={styles.buttonVaciar}
+            onPress={() => {
+              guardarTirada();
+            }}
+            title="Guardar Tirada"
+            disabled={false}
+          />
+        )}
       </View>
     </View>
   );

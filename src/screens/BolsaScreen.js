@@ -21,6 +21,7 @@ const BolsaScreen = ({ navigation }) => {
   const [dices, setDices] = useState([]);
   //AGREGADO DBRESULT
   const [dbResult, setDbResult] = useState([]);
+  const [lengthResult, setLengthResult] = useState();
 
   useEffect(() => {
     if (dices.length < 1) {
@@ -142,9 +143,12 @@ const BolsaScreen = ({ navigation }) => {
   //AGREGADO FUNCION CON FETCHTIRADA
   const cargado = async () => {
     console.log("uno");
-    const tiradaGuardada = await fetchTirada()
-    console.log(tiradaGuardada.rows._array)
+    const tiradaGuardada = await fetchTirada();
+    console.log(tiradaGuardada.rows._array);
+    console.log(tiradaGuardada.rows.length);
     setDbResult(tiradaGuardada.rows._array);
+    setLengthResult(tiradaGuardada.rows.length);
+
     console.log("dos");
   };
 
@@ -153,7 +157,7 @@ const BolsaScreen = ({ navigation }) => {
       let valor = Math.floor(Math.random() * dice.value + 1);
       dice.result = valor;
     });
-    navigation.navigate("Result", { dados: dices });
+    navigation.navigate("Result", { dados: dices , tiradaGuardada: false});
   };
 
   return (
@@ -208,9 +212,11 @@ const BolsaScreen = ({ navigation }) => {
       />
       {/* AGREGADO MODAL SQL */}
       <ModalSQL
+        navigation={navigation}
         modalVisibleSQL={modalVisibleSQL}
         cancelModalSQL={cancelModalSQL}
         dbResult={dbResult}
+        lengthResult={lengthResult}
       />
       <View style={[styles.inputContainer, styles.fondo]}>
         {/* AGREGADO BOTON DE CARGAR */}
@@ -218,8 +224,8 @@ const BolsaScreen = ({ navigation }) => {
           <Button
             styleButtonType={styles.buttonCancelar}
             onPress={() => {
-              cargado();
               setModalVisibleSQL(true);
+              cargado();
             }}
             title="Cargar tirada"
             disabled={false}
