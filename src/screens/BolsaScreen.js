@@ -142,14 +142,9 @@ const BolsaScreen = ({ navigation }) => {
 
   //AGREGADO FUNCION CON FETCHTIRADA
   const cargado = async () => {
-    console.log("uno");
     const tiradaGuardada = await fetchTirada();
-    console.log(tiradaGuardada.rows._array);
-    console.log(tiradaGuardada.rows.length);
     setDbResult(tiradaGuardada.rows._array);
     setLengthResult(tiradaGuardada.rows.length);
-
-    console.log("dos");
   };
 
   const lanzamiento = (dices) => {
@@ -157,7 +152,7 @@ const BolsaScreen = ({ navigation }) => {
       let valor = Math.floor(Math.random() * dice.value + 1);
       dice.result = valor;
     });
-    navigation.navigate("Result", { dados: dices , tiradaGuardada: false});
+    navigation.navigate("Result", { dados: dices, tiradaGuardada: false });
   };
 
   return (

@@ -19,23 +19,17 @@ const ModalSQL = ({
   let dataGT = [];
   let i = 0;
 
-  console.log("Primer Dato", dbResult);
-  console.log("Segundo Dato", lengthResult);
-
-  //Creo lo siguiente es inncesario, pero lo probe para ver si se arreglaba el 
+  //Creo lo siguiente es inncesario, pero lo probe para ver si se arreglaba el
   //espacio en blanco dentro del modal. NO se arreglo con esto, pero aun asi lo deje
   while (lengthResult > i) {
     dataGT[i] = dbResult[i];
     i = i + 1;
-    console.log("Dentro while", i, dataGT);
   }
 
   cargarTirada = (dadosTirada) => {
-    const dices = JSON.parse(dadosTirada.dados)
-    modalVisibleSQL=false;
-    navigation.navigate("Result", { dados: dices, tiradaGuardada : true });
-  }
-  
+    const dices = JSON.parse(dadosTirada.dados);
+    navigation.navigate("Result", { dados: dices, tiradaGuardada: true });
+  };
 
   return (
     <RNmodal animationType="slide" transparent={true} visible={modalVisibleSQL}>
@@ -56,25 +50,24 @@ const ModalSQL = ({
             <Text style={styles.textoTres}>Seleccione:</Text>
           </View>
           <View styles={styles.modalActions}>
-            {lengthResult === 0?
-            (
+            {lengthResult === 0 ? (
               <Text>No hay datos cargados</Text>
-            ):(
+            ) : (
               <FlatList
-              style={styles.flatlistSQL}
-              data={dataGT}
-              renderItem={(data) => (
-                <Pressable
-                style={styles.pressableSQL}
-                  onPress={() => {
-                    cargarTirada(data.item);
-                  }}
-                >
-                  <Text style={styles.textSQL} >► {data.item.title} ◄</Text>
-                </Pressable>
-              )}
-              keyExtractor={(item) => item.id.toString()}
-            />
+                style={styles.flatlistSQL}
+                data={dataGT}
+                renderItem={(data) => (
+                  <Pressable
+                    style={styles.pressableSQL}
+                    onPress={() => {
+                      cargarTirada(data.item);
+                    }}
+                  >
+                    <Text style={styles.textSQL}>► {data.item.title} ◄</Text>
+                  </Pressable>
+                )}
+                keyExtractor={(item) => item.id.toString()}
+              />
             )}
             <Button
               styleButtonType={styles.buttonCancelar}

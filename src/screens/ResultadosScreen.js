@@ -1,13 +1,14 @@
 import { FlatList, Text, View } from "react-native";
 import Button from "../components/Button";
-import React from "react";
+import React, { useState } from "react";
 import { styles } from "../../styles";
+import ModalGuardar from "../components/ModalGuardar";
 //AGREGADO INSERTTIRADA
-import { insertTirada } from "../db";
 
 const ResultadosScreen = ({ route, navigation }) => {
   const dadosBolsa = route.params.dados;
   const tiradaGuardada = route.params.tiradaGuardada;
+  const [modalVisibleGuardar, setModalVisibleGuardar] = useState(false);
 
   if (dadosBolsa == undefined) {
     return (
@@ -28,12 +29,9 @@ const ResultadosScreen = ({ route, navigation }) => {
   }
 
   //AGREGADO GUARDARTIRADA
-  guardarTirada = async () => {
-    const title = Date.now().toString();
-    const tiradaJSON = JSON.stringify(dadosBolsa);
-    console.log("Tirada en JSON", tiradaJSON);
-    const dbResult = await insertTirada(title, tiradaJSON);
-    console.log(dbResult);
+
+  const cancelModalGuardar = () => {
+    setModalVisibleGuardar(false);
   };
 
   return (
@@ -68,14 +66,21 @@ const ResultadosScreen = ({ route, navigation }) => {
         />
         {/* AGREGADO BOTON GUARDARTIRADA */}
         {tiradaGuardada ? null : (
-          <Button
-            styleButtonType={styles.buttonVaciar}
-            onPress={() => {
-              guardarTirada();
-            }}
-            title="Guardar Tirada"
-            disabled={false}
-          />
+          <>
+            <ModalGuardar
+              modalVisibleGuardar={modalVisibleGuardar}
+              cancelModalGuardar={cancelModalGuardar}
+              dadosBolsa={dadosBolsa}
+            />
+            <Button
+              styleButtonType={styles.buttonVaciar}
+              onPress={() => {
+                setModalVisibleGuardar(true);
+              }}
+              title="Guardar Tirada"
+              disabled={false}
+            />
+          </>
         )}
       </View>
     </View>

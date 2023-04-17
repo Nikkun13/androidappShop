@@ -42,7 +42,6 @@ export const fetchTirada = () => {
                 'SELECT * FROM tiradaDados',
                 [],
                 (_, result) => {
-                    console.log('Resultado ', result.rows)
                     resolve(result);
                 },
                 (_, err) => {
