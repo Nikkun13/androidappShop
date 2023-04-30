@@ -52,11 +52,7 @@ const RegisterScreen = ({ navigation }) => {
   });
 
   const onHandlerRegister = () => {
-    console.log(formState.formIsValid);
     if (formState.formIsValid) {
-      console.log("datos", formState.inputValues);
-      console.log("email", formState.inputValues.email);
-      console.log("password", formState.inputValues.password);
       dispacth(
         signUp(formState.inputValues.email, formState.inputValues.password)
       );

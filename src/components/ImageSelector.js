@@ -23,7 +23,7 @@ const ImageSelector = ({ onImage }) => {
 
   const handlerTakeImage = async () => {
     const isCameraOk = await VerifyPermissions();
-    console.log("CAMARA_UNO"); //SI SE USA ANDROID 13, LLEGA HASTA ACÁ. PARA EVITAR ESTE ERROR USAR ANDROID 12 O INFERIOR
+    //SI SE USA ANDROID 13, LLEGA HASTA ACÁ. PARA EVITAR ESTE ERROR USAR ANDROID 12 O INFERIOR
     if (!isCameraOk) return;
     //ACA ABAJO ESTA EL ERROR. NO SE ABRE LA CAMARA (EL ERROR DE PERMISOS SE DA CON ANDROID 13 TIRAMISU, USANDO S 12 POR EJEMPLO FUNCIONA)
     const image = await ImagePicker.launchCameraAsync({
@@ -31,7 +31,6 @@ const ImageSelector = ({ onImage }) => {
       aspect: [16, 9],
       quality: 0.8,
     });
-    console.log("CAMARA_DOS"); //ESTE NO LLEGA A APARECER
     setPickedUri(image.assets[0].uri);
     onImage(image.assets[0].uri);
   };

@@ -18,7 +18,6 @@ const DiceDetailScreen = ({ navigation }) => {
   }, []);
 
   const handlerAddItemCart = () => {
-    console.log("Agregado", dice);
     if (dice.categoryName !== "Remeras") {
       dispatch(addItem({ ...dice, quantity: 1 }));
     } else {

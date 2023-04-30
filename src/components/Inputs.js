@@ -43,13 +43,9 @@ const Input = ({
     touched: false,
   });
 
-  //Al momento de llenar los campos de email o password, al finalizar se debe pasar a llenar otro campo o presionar enter, para que la siguiente
-  //parte se actualice y mande los datos. Un error que me pasaba es que llenaba el campo de password (el segundo) y al hacer click en registrarme
-  //me marcaba password perdida, me di cuenta el siguiente console.log no se escribía. Si presiono enter y luego en registrarme funciona.
   useEffect(() => {
     if (inputState.touched) {
       onInputChange(id, inputState.value, inputState.isValid);
-      console.log(inputState); //Este console.log es el que indico arriba (linea 37)
     }
   }, [inputState, onInputChange]);
 
